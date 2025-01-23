@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var navbar = document.querySelector('.navbar-collapse');
+    var toggler = document.querySelector('.navbar-toggler');
+
+    // Close navbar when clicking outside
+    document.addEventListener('click', function (event) {
+        if (navbar.classList.contains('show') && !navbar.contains(event.target) && !toggler.contains(event.target)) {
+            new bootstrap.Collapse(navbar).hide();
+        }
+    });
+
+    // Toggle navbar when clicking the toggler button
+    toggler.addEventListener('click', function () {
+        if (navbar.classList.contains('show')) {
+            new bootstrap.Collapse(navbar).hide();
+        } else {
+            new bootstrap.Collapse(navbar).show();
+        }
+    });
+});
+
+
 function sendMail(e) {
     e.preventDefault();  // Prevent the form from submitting normally
     console.log("called");
